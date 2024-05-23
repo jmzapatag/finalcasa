@@ -22,7 +22,7 @@ broker="broker.mqttdashboard.com"
 port=1883
 client1= paho.Client("NEVERA123")
 client1.on_message = on_message
-Image = image.open('frio.png')
+image = Image.open('frio.png')
 
 
 st.title("Nevera Inteligente ❄️")
@@ -67,3 +67,5 @@ if st.button('Enviar temperatura'):
  
 else:
     st.write('')
+
+st.image(image)
