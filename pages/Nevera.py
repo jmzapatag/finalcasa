@@ -25,9 +25,9 @@ client1.on_message = on_message
 
 
 
-st.title("MQTT Control")
+st.title("Nevera")
 
-if st.button('ON'):
+if st.button('Prender Luz'):
     act1="ON"
     client1= paho.Client("NEVERA123")                           
     client1.on_publish = on_publish                          
@@ -41,7 +41,7 @@ if st.button('ON'):
 else:
     st.write('')
 
-if st.button('OFF'):
+if st.button('Apagar Luz'):
     act1="OFF"
     client1= paho.Client("NEVERA123")                           
     client1.on_publish = on_publish                          
@@ -53,7 +53,7 @@ if st.button('OFF'):
 else:
     st.write('')
 
-values = st.slider('Cambia la temperatura',0.0, 100.0)
+values = st.slider('Cambia la temperatura',-20.0, 20.0)
 st.write('Values:', values)
 
 if st.button('Enviar valor analógico'):
