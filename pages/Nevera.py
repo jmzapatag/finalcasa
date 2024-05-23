@@ -4,7 +4,7 @@ import streamlit as st
 import json
 values = 0.0
 act1="OFF"
-
+from PIL import Image
 def on_publish(client,userdata,result):             #create function for callback
     print("el dato ha sido publicado \n")
     pass
@@ -22,7 +22,7 @@ broker="broker.mqttdashboard.com"
 port=1883
 client1= paho.Client("NEVERA123")
 client1.on_message = on_message
-
+Image = image.open('frio.png')
 
 
 st.title("Nevera Inteligente ❄️")
