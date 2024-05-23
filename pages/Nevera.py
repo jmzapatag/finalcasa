@@ -25,7 +25,8 @@ client1.on_message = on_message
 
 
 
-st.title("Nevera")
+st.title("Nevera Inteligente ❄️")
+st.subheader("Controla aqui tu nevera inteligente ")
 
 if st.button('Prender Luz'):
     act1="ON"
@@ -54,7 +55,7 @@ else:
     st.write('')
 
 values = st.slider('Cambia la temperatura',-20.0, 20.0)
-st.write('Temperatura:', values)
+st.write('Temperatura 🌡️ :', values)
 
 if st.button('Enviar temperatura'):
     client1= paho.Client("NEVERA123")                           
