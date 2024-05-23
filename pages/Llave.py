@@ -19,7 +19,8 @@ def on_message(client, userdata, message):
     st.write(message_received)
 
         
-
+image = Image.open('abierta.png')
+image2 = Image.open('cerrada.png')
 
 broker="broker.mqttdashboard.com"
 port=1883
@@ -32,8 +33,8 @@ model = load_model('keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 st.title("Llave Inteligente")
-
-img_file_buffer = st.camera_input("Toma una Foto")
+st.subheader("Maneja aqui tu llave de agua sin tener que tocarla fisicamente")
+img_file_buffer = st.camera_input("Haz un gesto con tu palma abierta para abrir la llave, o cierrala en forma de puño para cerrarla")
 
 if img_file_buffer is not None:
     # To read image file buffer with OpenCV:
@@ -56,9 +57,11 @@ if img_file_buffer is not None:
     print(prediction)
     if prediction[0][0]>0.3:
       st.header('Abriendo')
+      st.image(image)
       client1.publish("DAKU","{'gesto': 'Abre'}",qos=0, retain=False)
       time.sleep(0.2)
     if prediction[0][1]>0.3:
       st.header('Cerrando')
+      st.image(image2)
       client1.publish("DAKU","{'gesto': 'Cierra'}",qos=0, retain=False)
       time.sleep(0.2)  
