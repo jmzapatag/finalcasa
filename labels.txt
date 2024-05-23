@@ -1,0 +1,2 @@
+0 Mano abierta
+1 Mano cerrada
