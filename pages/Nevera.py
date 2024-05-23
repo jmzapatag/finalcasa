@@ -54,9 +54,9 @@ else:
     st.write('')
 
 values = st.slider('Cambia la temperatura',-20.0, 20.0)
-st.write('Values:', values)
+st.write('Temperatura:', values)
 
-if st.button('Enviar valor analógico'):
+if st.button('Enviar temperatura'):
     client1= paho.Client("NEVERA123")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)   
